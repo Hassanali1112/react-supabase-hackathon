@@ -13,13 +13,19 @@ const RootPage = () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+      if(user){
+        console.log(user)
+        
+      }
     } catch (error) {
-      
+      console.log(error)
     }
   }
 
   useEffect(()=>{
-   
+    console.log('effect')
+   getUser()
+   navigate("/user-dashboard");
   },[])
 
   return (
